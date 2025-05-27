@@ -1,6 +1,6 @@
 $(document).ready(function () {
     const API_URL = "https://api.coingecko.com/api/v3/coins/markets";
-    const MAX_COMPARISON = 5;
+    const MAX_COMPARISON = 5;    
 
     // Load comparison list and preferences from localStorage
     let comparisonList = JSON.parse(localStorage.getItem("comparisonList")) || [];
@@ -33,7 +33,7 @@ $(document).ready(function () {
         apiResponseData.forEach((crypto) => {
             const isFavorite = preferences.favorites.includes(crypto.id);
             const card = $(`
-                <div class="crypto-card ${isFavorite ? "favorite" : ""}">
+                <div class="crypto-card ${isFavorite ? "favorite" : ""}" >
                 <image src=${crypto.image} width="50" height="50"></image>
                     <h3>${crypto.name} (${crypto.symbol.toUpperCase()})</h3>
                     <p>Price: $${crypto.current_price.toFixed(2)}</p>
@@ -69,7 +69,7 @@ $(document).ready(function () {
     // Add cryptocurrency to comparison
     function addToComparison(id) {
         if (comparisonList.length >= MAX_COMPARISON) {
-            alert("You can compare up to 5 cryptocurrencies.");
+            alert(`You can compare up to ${MAX_COMPARISON} cryptocurrencies.`);
             return;
         }
 
@@ -78,7 +78,7 @@ $(document).ready(function () {
             localStorage.setItem("comparisonList", JSON.stringify(comparisonList));
             updateComparison();
         } else {
-            alert(`${crypto.name} is already in the comparison list.`);
+            alert(`${id} is already in the comparison list.`);
         }
     }
 
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
     // Remove cryptocurrency from comparison
     function removeFromComparison(id) {
-        comparisonList = comparisonList.filter((crypto) => crypto.id !== id);
+        comparisonList = comparisonList.filter((items) => items !== id);
         localStorage.setItem("comparisonList", JSON.stringify(comparisonList));
         updateComparison();
     }
