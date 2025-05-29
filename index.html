@@ -6,7 +6,7 @@
     <title>Crypto Tracker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="main.js"></script>
   <body>
     <header>
@@ -28,6 +28,20 @@
               <option value="market_cap_asc">Market Cap (Ascending)</option>
             </select>
           </label>
+          <label for="currency-input">Choose Currency</label>
+          <select id="currency-input">
+            <option value="inr">inr</option>
+            <option value="usd">usd</option>
+            <option value="eur">eur</option>
+            <option value="gbp">gbp</option>
+            <option value="jpy">jpy</option>
+            <option value="aud">aud</option>
+            <option value="cad">cad</option>
+            <option value="chf">chf</option>
+            <option value="cny">cny</option>
+            <option value="brl">brl</option>
+          </select>
+          <button id="update-currency">Update Currency</button>
           <button id="refresh-data">Refresh Data</button>
         </div>
       </section>
@@ -49,7 +63,10 @@
       <div class="info">
         <p>Ramanand Institute of Pharmacy, Management & Technology</p>
       </div>
-      <p>Made with <span style="color: red;"> &#10084;</span> by <span style="color: aquamarine;"> Deepak Rastogi, Abhishek Kotal</span></p>
+      <p>
+        Made with <span style="color: red"> &#10084;</span> by
+        <span style="color: aquamarine"> Deepak Rastogi, Abhishek Kotal</span>
+      </p>
       <p>&copy; 2025 Crypto Tracker</p>
     </footer>
   </body>
